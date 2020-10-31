@@ -1,6 +1,7 @@
+import logging
+
 from flask import Flask
 from flask import json
-import logging
 
 app = Flask(__name__)
 
