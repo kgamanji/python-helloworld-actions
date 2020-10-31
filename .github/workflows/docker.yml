@@ -26,6 +26,11 @@ jobs:
      #   with:
      #     images: pixelpotato/python-helloworld # list of Docker images to use as base name for tags
      #     tag-sha: true # add git short SHA as Docker tag
+     
+     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      -
+        name: Checkout
+        uses: actions/checkout@v2
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -43,7 +48,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ../../Dockerfile
           platforms: linux/amd64
           push: true
           tags: pixelpotato/python-helloworld:latest
