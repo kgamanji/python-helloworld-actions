@@ -19,6 +19,6 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint -E app.py
+        pip install -r requirements.txt ; pylint -E app.py
         
     #pylint `ls -R|grep .py$|xargs`
