@@ -1,5 +1,5 @@
 namespace:
-  name: demo
+  name: staging 
  
 service:
   port: 8111
@@ -7,15 +7,15 @@ service:
 
 image:
   repository: nginx 
-  tag: alpine
+  tag: 1.18.0
   pullPolicy: IfNotPresent
 
-replicaCount: 3
+replicaCount: 1
 
 resources:
   requests:
     cpu: 50m
-    memory: 256Mi
+    memory: 128Mi
 
 configmap:
-  data: "version: alpine"
+  data: "version: 1.18.0"
