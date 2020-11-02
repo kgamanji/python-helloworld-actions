@@ -1,0 +1,9 @@
+apiVersion: v1
+name: nginx-alpine
+description: Install Nginx Alpine manifests 
+keywords:
+- nginx 
+version: 1.0.0
+maintainers:
+- name: kgamanji 
+  email: gamanjie@gmail.com
