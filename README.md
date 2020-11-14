@@ -1,3 +1,3 @@
 # python-helloworld
 
-This is a basing Python Flask application.
+This is a basic Python Flask application.
