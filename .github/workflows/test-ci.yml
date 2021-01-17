@@ -19,13 +19,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-     # - 
-     #   name: Docker meta
-     #   id: docker_meta
-     #   uses: crazy-max/ghaction-docker-meta@v1
-     #   with:
-     #     images: pixelpotato/python-helloworld # list of Docker images to use as base name for tags
-     #     tag-sha: true # add git short SHA as Docker tag
+      - 
+        name: Docker meta
+        id: docker_meta
+        uses: crazy-max/ghaction-docker-meta@v1
+        with:
+          images: pixelpotato/python-helloworld # list of Docker images to use as base name for tags
+          tag-sha: true # add git short SHA as Docker tag
      
      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       -
@@ -43,25 +43,25 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #-
+      #  name: Build and push
+      #  uses: docker/build-push-action@v2
+      #  with:
+      #    context: .
+      #    file: ./Dockerfile
+      #    platforms: linux/amd64
+      #    push: true
+      #    tags: pixelpotato/python-helloworld:latest
       -
         name: Build and push
+        id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: pixelpotato/python-helloworld:latest
-      #-
-      #  name: Build and push
-      #  id: docker_build
-      #  uses: docker/build-push-action@v2
-      #  with:
-          #context: .
-          #file: ./Dockerfile
-      #    platforms: linux/amd64,linux/arm64,linux/386
-      #    push: ${{ github.event_name != 'pull_request' }}
-      #    tags: ${{ steps.docker_meta.outputs.tags }}
+          platforms: linux/amd64,linux/arm64,linux/386
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.docker_meta.outputs.tags }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
      # - name: Check out the repo
      #   uses: actions/checkout@v2
