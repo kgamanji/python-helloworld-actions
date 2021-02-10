@@ -1,6 +1,7 @@
-ports:
-- port: 3111
-  onOpen: open-preview
 tasks:
   - init: pip install -r requirements.txt
     command: python app.py
+ports:
+- port: 3111
+  onOpen: open-preview
+  openMode: split-right
