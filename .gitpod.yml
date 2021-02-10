@@ -4,4 +4,3 @@ tasks:
 ports:
 - port: 3111
   onOpen: open-preview
-  openMode: split-right
