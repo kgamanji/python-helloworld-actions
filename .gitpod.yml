@@ -1,0 +1,4 @@
+tasks:
+  - before: ./setup.sh
+    init: echo "HEllo" 
+    command: python app.py
