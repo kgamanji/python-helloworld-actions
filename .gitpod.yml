@@ -1,5 +1,5 @@
 image: gitpod/workspace-full
 tasks:
-  - before: pip install -r requirements.txts
+  - before: pip install -r requirements.txt
     init: echo "HEllo"
     command: python app.py
