@@ -2,5 +2,5 @@ tasks:
   - init: pip install -r requirements.txt
     command: python app.py
 ports:
-- port: 3111
+- port: 8080
   onOpen: open-preview
